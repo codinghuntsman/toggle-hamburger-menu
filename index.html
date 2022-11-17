@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .style {
+        /* width: auto; */
+        /* padding: 30px; */
+        color: white;
+        text-align: center;
+        box-sizing: border-box;
+        transition: 0.8s;
+        position: fixed;
+        top: 100px;
+        left: 0;
+        transform: translateX(100px);
+        background-color: red;
+      }
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .menu {
+        width: fit-content;
+        border: 1px solid #b3b2b2;
+        padding: 10px;
+        cursor: pointer;
+        transition: 0.5s;
+        border-radius: 50%;
+      }
+      .menu:hover,
+      menu:focus {
+        background-color: #dbdbdb;
+      }
+      .item {
+        width: 20px;
+        height: 4px;
+        margin-top: 3px;
+        background-color: black;
+      }
+      .item:nth-child(1) {
+        margin-top: 0px;
+      }
+      .menu.active .item:nth-child(2) {
+        opacity: 0;
+      }
+      .menu.active .item:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .menu.active .item:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <button onclick="toggle()">Toggle</button> -->
+    <div class="menu" id="mmm01" onclick="toggle()">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+    <h1 id="para">Toggled this element</h1>
+
+    <script>
+      function toggle() {
+        document.getElementById("para").classList.toggle("style");
+        document.getElementById("para").style.width = "400px";
+        document.getElementById("para").style.height = "400px";
+      }
+      const hamburger = document.getElementById("mmm01");
+      // const classes = document.getElementsByClassName("item");
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        // classes.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
